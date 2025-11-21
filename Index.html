@@ -3,18 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Expression Calculator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CALCULATOR</h1>
-    <div class="container">
-      <input type="number" placeholder="Entre first number" class="num1" />
-      <input type="number" placeholder="Entre second number" class="num2" />
-      <button>Calculate</button>
-      <p class="hide">Result</p>
-    </div>
+    <main class="calculator">
+      <header>
+        <h1>Expression Calculator</h1>
+        <p>Evaluate complex expressions, variables, constants, and history.</p>
+      </header>
 
-    <script src="calculatro.js"></script>
+      <section class="expression-panel">
+        <label for="expressionInput">Expression</label>
+        <input
+          id="expressionInput"
+          class="expression-input"
+          type="text"
+          placeholder="Example: sqrt(4) + 3*sin(pi/2) - var1^2"
+          autocomplete="off"
+        />
+        <div class="controls">
+          <button type="button" id="clearExpression">Clear</button>
+          <button type="button" id="evaluateExpression">Evaluate</button>
+        </div>
+        <div id="resultDisplay" class="result-display">
+          Result will appear here.
+        </div>
+      </section>
+
+      <section class="keypad" id="keypad">
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="/">/</button>
+        <button data-value="sqrt(">sqrt</button>
+
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="*">*</button>
+        <button data-value="sin(">sin</button>
+
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value="-">-</button>
+        <button data-value="cos(">cos</button>
+
+        <button data-value="0">0</button>
+        <button data-value=".">.</button>
+        <button data-value="+">+</button>
+        <button data-value="^">^</button>
+        <button data-value="tan(">tan</button>
+
+        <button data-value="(">(</button>
+        <button data-value=")">)</button>
+        <button data-value="pi">pi</button>
+        <button data-value="e">e</button>
+        <button type="button" data-action="backspace">⌫</button>
+      </section>
+
+      <section class="variables">
+        <h2>Variables</h2>
+        <form id="variableForm">
+          <input
+            type="text"
+            id="variableName"
+            placeholder="Name (e.g., var1)"
+            required
+          />
+          <input
+            type="number"
+            id="variableValue"
+            placeholder="Value"
+            required
+            step="any"
+          />
+          <button type="submit">Add / Update</button>
+        </form>
+        <ul id="variableList" class="variable-list">
+          <li class="placeholder">No variables added yet.</li>
+        </ul>
+      </section>
+
+      <section class="history">
+        <h2>History</h2>
+        <p class="history-help">
+          Click an item to load it back. Delete entries you no longer need.
+        </p>
+        <ul id="historyList" class="history-list">
+          <li class="placeholder">No history yet.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="Script.js" defer></script>
   </body>
 </html>
