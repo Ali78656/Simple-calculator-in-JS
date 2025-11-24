@@ -137,6 +137,11 @@ section {
   background: rgba(251, 113, 133, 0.08);
 }
 
+.result-display.copied {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.35);
+}
+
 .keypad {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
