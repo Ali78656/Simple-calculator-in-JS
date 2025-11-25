@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const showResult = (message, isError = false) => {
     resultDisplay.textContent = message;
     resultDisplay.classList.toggle("error", isError);
-    resultDisplay.classList.remove("copied");
   };
 
   const insertAtCursor = (value) => {
@@ -446,20 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const copyResultToClipboard = async () => {
-    const text = resultDisplay.textContent.trim();
-    if (!text || text === "Result will appear here.") return;
-    try {
-      await navigator.clipboard.writeText(text);
-      resultDisplay.classList.add("copied");
-      setTimeout(() => resultDisplay.classList.remove("copied"), 1200);
-    } catch {
-      // ignore clipboard failures silently
-    }
-  };
-
-  resultDisplay.setAttribute("title", "Click to copy current result");
-  resultDisplay.addEventListener("click", copyResultToClipboard);
+  // Copy-to-clipboard feature removed — clicking the result no longer copies text.
   variableForm.addEventListener("submit", handleVariableSubmit);
 
   renderVariables();
